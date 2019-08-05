@@ -351,18 +351,25 @@ class NinjaAnt(Ant):
     blocks_path = False
     food_cost = 5 
     # BEGIN Problem 7
-    implemented = True   # Change to True to view in the GUI
+    implemented = False   # Change to True to view in the GUI
     # END Problem 7
 
     def action(self, colony):
         # BEGIN Problem 7
-        bee_list = self.place.bees
-        for bee in list(bee_list):
+        bees_to_attack = list(self.place.bees)
+        for bee in bees_to_attack:
             bee.reduce_armor(self.damage)
         # END Problem 7
 
 # BEGIN Problem 8
 # The WallAnt class
+class WallAnt(Ant):
+    name = 'Wall'
+    implemented = True
+    damage = 0
+    food_cost = 4
+    def __init__(self):
+        Ant.__init__(self, armor = 6)
 # END Problem 8
 
 class BodyguardAnt(Ant):
